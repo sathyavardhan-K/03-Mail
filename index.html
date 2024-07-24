@@ -1,0 +1,219 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="app.css" />
+
+    <style>
+      .search h3 {
+      display: flex;
+      align-items: center; /* Align the image and text vertically */
+      
+      }
+
+      .search h3::before {
+          content: '';
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          background-image: url('search.png');
+          background-size: cover; /* Ensure the image covers the entire element */
+          margin-right: 130px; /* Space between the image and the text */
+          margin-left: 20px;
+
+      }
+
+      .s0{
+        font-size: 15px;
+        font-weight: 450;
+      }
+
+      .user-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .user-list li {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+
+    </style>
+  </head>
+  <body>
+    <!-- <h1>test-mail</h1> -->
+    <!-- domo.js optional utils -->
+
+    <div class="header"> 
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="search"> 
+        <h3>Search</h3>
+        <img src="" alt="avatar" id="avatar" width="40px" height="40px">
+     </div>
+
+      <h1 id="name"></h1> 
+    </div>
+    
+
+    <div class="emailmanager">
+      <button type="button" id="manage"  class="m1"><img src="mail-inbox.png" alt="mailmanager" width="30px" height="30px"  onclick="event1()">Mail Manager</button>
+      
+      <button type="button"  id="note"  class="m2"><img src="sticky-note.png" alt="notes" width="28px" height="28px" onclick="event2()">Notes</button>
+      <button type="button" id="save" class="m3"><img src="wishlist.png" alt="savednote" width="30px" height="30px" onclick="event3()">Saved Note</button>
+    </div>
+
+    
+
+    
+
+
+    <div class="dropdown" id="drop">
+      <button id="select"> <span class="s0">Select Person(s)</span> <img src="down-arrow.png" alt="downarr" width="30px" height="30px"></button>
+      <div class="content" id="targetDiv">
+        <select name="user-list" id="userList" multiple>
+        <!-- Options will be dynamically added here -->
+        </select>
+        <button id="sendEmailBtn" onclick="send()">Send Email</button>
+      </div>
+    </div>
+
+    
+    
+
+    <div class="note-container" id="cont">
+      <div class="note-header">
+          <input type="text" placeholder="Title" class="note-title">
+      </div>
+      <div class="note-body">
+          <textarea placeholder="Type your note here..." class="note-content"></textarea>
+      </div>
+      <button class="save-btn">Save Note</button>
+  </div>
+
+
+
+  <div class="display-note" id="display">
+    <h1>My Notes</h1>
+    <h1 id="note-title"></h1>
+    <p id="note-content"></p>
+  </div>
+
+
+ 
+
+    <div id="message" class="hidden message">Message will be displayed here</div>
+
+    
+
+    <script>
+      // document.getElementById('hamburger').onclick = function() {
+      //   this.classList.toggle('active');
+        
+      // };
+
+      // function event1(){
+      //   var manage = document.getElementById('drop');
+      //   var note = document.getElementById('cont');
+      //   var disp = document.getElementById('display');
+      //   note.setAttribute('style','display:none;');
+      //   disp.setAttribute('style','display:none');
+      //   manage.setAttribute('style','display:block;');
+      // }
+
+      
+      // function event2(){
+      //   // var note = document.getElementById('cont');
+      //   var manage = document.getElementById('drop');
+      //   var note = document.getElementById('cont');
+      //   var disp = document.getElementById('display');
+      //   manage.setAttribute('style','display:none;');
+      //   disp.setAttribute('style','display:none');
+      //   note.setAttribute('style','display:block;');
+      // }
+
+      // function event3(){
+      //   var note = document.getElementById('cont');
+      //   var disp = document.getElementById('display');
+      //   var manage = document.getElementById('drop');
+      //   note.setAttribute('style','display:none;');
+      //   manage.setAttribute('style','display:none');
+      //   disp.setAttribute('style','display:block');
+      // }
+
+
+
+
+      document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('hamburger').onclick = function() {
+        this.classList.toggle('active');
+        document.querySelector('.emailmanager').classList.toggle('active');
+      };
+    });
+
+    document.addEventListener('DOMContentLoaded', function(){
+      document.getElementById('manage').onclick = function(){
+        document.querySelector('.dropdown').classList.toggle('active');
+      }
+    })
+
+    document.addEventListener('DOMContentLoaded', function(){
+      document.getElementById('note').onclick = function(){
+        document.querySelector('.note-container').classList.toggle('active');
+      }
+    })
+
+
+    document.addEventListener('DOMContentLoaded', function(){
+      document.getElementById('save').onclick = function(){
+        document.querySelector('.display-note').classList.toggle('active');
+      }
+    })
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+            // Function to toggle the button visibility
+            function toggleButton(buttonId) {
+                // Hide all buttons first
+                var buttons = document.querySelectorAll('.email-btn');
+                buttons.forEach(function(button) {
+                    button.classList.remove('active');
+                });
+
+                // Show the clicked button
+                var btn = document.getElementById(buttonId);
+                btn.classList.toggle('active');
+            }
+
+
+            // Add click event listeners to the span elements
+            document.querySelector('.s1').onclick = function() {
+                toggleButton('myBtn1');
+            };
+
+            document.querySelector('.s2').onclick = function() {
+                toggleButton('myBtn2');
+            };
+
+            document.querySelector('.s3').onclick = function() {
+                toggleButton('myBtn3');
+            };
+
+            document.querySelector('.s4').onclick = function() {
+                toggleButton('myBtn4');
+            };
+        });
+
+
+
+  
+    </script>
+    <script src="script.js"></script>
+
+    <script src="https://unpkg.com/ryuu.js"></script>
+    <script src="app.js"></script>
+
+  </body>
+</html>

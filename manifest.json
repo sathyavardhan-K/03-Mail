@@ -1,0 +1,44 @@
+{
+  "name": "test-mail",
+  "version": "1.0.0",
+  "size": {
+    "width": 6,
+    "height": 2
+  },
+  "mapping": [],
+  "workflowMapping": [
+    {
+      "alias": "send_email",
+      "modelId": null,
+      "version": null,
+      "parameters": [
+        {
+          "name": "to",
+          "aliasedName": "to",
+          "type": "text",
+          "list": false,
+          "children": []
+        },
+        {
+          "name": "subject",
+          "aliasedName": "subject",
+          "type": "text",
+          "list": false,
+          "children": []
+        },
+        {
+          "name": "body",
+          "aliasedName": "body",
+          "type": "text",
+          "list": false,
+          "children": []
+        }
+      ]
+    }
+  ],
+  "fileName": "manifest.json",
+  "id": "b98f069e-f03d-4d4d-988d-85ca2cf0e20d",
+  "proxyId": "49a145df-2d21-47fa-917b-1cb92b3c3e79" 
+
+}
+
